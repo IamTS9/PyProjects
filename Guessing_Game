@@ -1,0 +1,49 @@
+import  random
+logo = '''
+
+  ________                             
+ /  _____/ __ __   ____   ______ ______
+/   \  ___|  |  \_/ __ \ /  ___//  ___/
+\    \_\  \  |  /\  ___/ \___ \ \___ \ 
+ \______  /____/  \___  >____  >____  >
+        \/            \/     \/     \/
+'''
+
+print(logo)
+EASY = 10
+HARD = 5
+print('Welcome to number guesser!')
+level = input('Choose a level easy or hard ')
+actual_num = random.randint(1, 100)
+if level == 'easy':
+    print(f'You have {EASY} lives')
+    while EASY != 0:
+        EASY -= 1
+        guess = int(input('Enter your guess:\n'))
+        if guess == actual_num:
+            print('You guessed the correct number')
+            break
+        elif guess > actual_num:
+            print('Guess lower')
+            print(f'You have {EASY} lives left. ')
+        elif guess < actual_num:
+            print('Guess higher')
+            print(f'You have {EASY} lives left. ')
+
+if level == 'hard':
+    print(f'You have {HARD} lives')
+    while HARD != 0:
+        HARD -= 1
+        guess = int(input('Enter your guess:\n'))
+        if guess == actual_num:
+            print('You guessed the correct number')
+            break
+        elif guess > actual_num:
+            print('Guess lower')
+            print(f'You have {HARD} lives left. ')
+        elif guess < actual_num:
+            print('Guess higher')
+            print(f'You have {HARD} lives left. ')
+
+if EASY == 0 or HARD == 0:
+    print(f'Sorry out of lives, the number was {actual_num}. ')
